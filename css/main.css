@@ -1,0 +1,10 @@
+img {
+	width: 100%;
+}
+a{
+	color: #387ef5;
+}
+/*a:link {color: #387ef5;}*/
+a:visited {color: #999;}
+/*a:hover {color:#eb0102;}*/
+/*a:active {color:#eb0102;}*/

@@ -1,0 +1,20 @@
+<ion-view view-title="帖子分类">
+	<ion-content>
+		<!--<div class="card">
+  <div class="item item-text-wrap">
+    This is a basic Card which contains an item that has wrapping text.
+  </div>
+</div>-->
+		<ion-list >
+			<ion-item ng-repeat="item in postData">
+				<p>{{item.name}}</p>
+				<ion-list>
+					<ion-item ng-repeat="list in item.subcate">
+						<a href="#/tab/postlist/{{list.fid}}">{{list.name}}</a>
+					</ion-item>
+				</ion-list>
+			</ion-item>
+		</ion-list>
+		
+	</ion-content>
+</ion-view>

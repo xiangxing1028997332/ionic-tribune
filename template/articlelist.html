@@ -1,0 +1,24 @@
+<ion-view view-title="文章列表">
+	<ion-content>
+		<!--取反，当有数据时，! listData.length 为false  隐藏-->
+		<p ng-show="!listData.length">暂无数据！</p>
+		<ion-list>
+			<ion-item ng-repeat="item in listData" class="item-thumbnail-left">
+				<img ng-src="http://www.phonegap100.com/data/attachment/{{item.pic}}" ng-if="item.pic"/>
+					<!--ng-if 指令用于在表达式为 false 时移除 HTML 元素。-->
+				<!--当item.pic无图片时，!item.pic为true，就显示出来-->
+				<img src="img/moren.png" ng-if="!item.pic"/>
+				<a href="#/tab/articledetail/{{item.aid}}">{{item.title}}</a>
+			</ion-item>
+		</ion-list>
+		
+		<!-- 上拉加载 -->
+		<!-- on-infinite  上拉加载所触发的函数
+		distance  距离底部还有多远才去触发上拉加载 -->
+		<!-- 页面一进来就会触发上拉加载，这是因为一开始页面内容比较少，页面高度没有超出屏幕高度 -->
+		<ion-infinite-scroll
+		    on-infinite="loadMore()"
+		    distance="1%" ng-if="ifEmpty">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

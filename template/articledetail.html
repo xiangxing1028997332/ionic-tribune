@@ -1,0 +1,15 @@
+<ion-view view-title="文章详情">
+	<ion-content >
+			<h3>{{detailData[0].title}}</h3>
+			<div class="card">
+				  <div class="item item-text-wrap">
+				    	{{ detailData[0].summary}}
+				  </div>
+			</div>
+		<div ng-bind-html="detailData[0].content"></div>
+	</ion-content>
+	
+</ion-view>
+
+	
+	

@@ -1,0 +1,29 @@
+<ion-view view-title="帖子列表">
+	<ion-content>
+		<p ng-show="!postlistData.length">暂无数据！</p>
+		<!--<ion-list>
+			
+			<ion-item ng-repeat="item in postlistData">
+				<a href="#/tab/postdetail/{{item.tid}}">{{item.subject}}</a>
+			</ion-item>
+	    	
+	    </ion-list>-->
+	    
+	    <div class="list" ng-repeat="item in postlistData">
+			  <a class="item item-icon-left" href="#/tab/postdetail/{{item.tid}}">
+			    <i class="icon ion-pricetag"></i>
+			    <p>{{item.subject}}</p>
+			    <span >{{item.author}}</span>
+			    <i style="font-size: 12px;">{{item.lastpost + "000" | date:'yyyy-MM-dd hh:mm:ss'}}</i>
+			  </a>
+			    
+			  
+  		</div>
+
+		<ion-infinite-scroll
+		    on-infinite="loadMore()"
+		    distance="1%" ng-if="ifEmpty">
+		</ion-infinite-scroll>
+		
+	</ion-content>
+</ion-view>

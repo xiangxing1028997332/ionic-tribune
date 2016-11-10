@@ -1,0 +1,72 @@
+//项目入口文件
+angular.module('myapp',['ionic','myController','myService'])
+
+.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+	$stateProvider
+	//定义底部的选项卡
+	.state('tabControl',{
+		url:'/tab',
+		templateUrl:'template/tabControl.html',
+		abstract: true,	
+	})
+	
+	//文章总共分类
+	.state('tabControl.article',{
+		url:'/article',
+		views:{
+			"article-view":{
+				templateUrl:'template/article.html',
+				controller:'articleCtrl'
+			}
+		}	
+	})
+	//文章的列表
+	.state('tabControl.articlelist',{
+		url:'/articlelist/:id',
+		views:{
+			"article-view":{
+				templateUrl:'template/articlelist.html',
+				controller:'articlelistCtrl'
+			}
+		}
+	})
+	.state('tabControl.articledetail',{
+		url:'/articledetail/:aid',
+		views:{
+			"article-view":{
+				templateUrl:'template/articledetail.html',
+				controller:'articledetailCtrl'
+			}
+		}
+	})
+	.state('tabControl.post',{
+		url:'/post',
+		views:{
+			"post-view":{
+				templateUrl:'template/post.html',
+				controller:'postCtrl'
+			}
+		}
+	})
+	.state('tabControl.postlist',{
+		url:'/postlist/:fid',
+		views:{
+			"post-view":{
+				templateUrl:'template/postlist.html',
+				controller:'postlistCtrl'
+			}
+		}
+	})
+	.state('tabControl.postdetail',{
+		url:'/postdetail/:tid',
+		views:{
+			"post-view":{
+				templateUrl:'template/postdetail.html',
+				controller:'postdetailCtrl'
+			}
+		}
+	})
+	
+//	默认路由
+	 $urlRouterProvider.otherwise("tab/article"); 
+}])

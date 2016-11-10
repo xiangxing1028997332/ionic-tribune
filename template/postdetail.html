@@ -1,0 +1,23 @@
+<ion-view view-title="帖子详情">
+	<ion-content>
+		<div class="list card" ng-repeat="item in postdetailData">
+			  <div class="item item-avatar">
+			  	 <img src="img/header.jpg">
+			    <h2>{{item.author}}</h2>
+			    <p>{{item.dateline + "000" | date:'yyyy-MM-dd hh:mm:ss'}}</p>
+			  </div>
+				<h3>{{item.subject}}</h3>
+			    <p ng-bind-html="item.message">
+			    	<p>
+				      <a href="#" class="subdued">{{item.position}}楼</a>
+				      <a href="#" class="subdued" ng-show="{{item.first}}">{{postdetailData.length-1}} 评论</a>
+				    </p>
+			    	<!--<img ng-src="http://www.phonegap100.com/data/attachment/{{item.message}}" ng-if="item.pic"/>-->
+			    </p>
+			  </div>
+		  
+		
+		</div>
+		
+	</ion-content>
+</ion-view>
