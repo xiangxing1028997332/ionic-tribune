@@ -5,7 +5,7 @@ angular.module('myService',[])
 	return{
 //		服务中的获取文章数据的函数
 		"articleData":function(){
-			$http.jsonp('http://www.phonegap100.com/appapi.php',{
+			$http.jsonp('https://www.phonegap100.com/appapi.php',{
 				"params":{
 					"a": "getPortalCate",
 					"callback":"JSON_CALLBACK"
@@ -13,13 +13,13 @@ angular.module('myService',[])
 			}).then(function(res){
 //				console.log(res.data.result);
 				$rootScope.$broadcast('articleData',res.data.result)
-			},function(){
+			},function(error){
 				console.log(error)
 			})
 		},
 //		文章列表的数据请求
 		"listData":function(catid,page){
-			$http.jsonp('http://www.phonegap100.com/appapi.php',{
+			$http.jsonp('https://www.phonegap100.com/appapi.php',{
 				"params":{
 					"a": "getPortalList",
 					"callback":"JSON_CALLBACK",
@@ -35,7 +35,7 @@ angular.module('myService',[])
 		},
 		//文章详情的数据请求
 		"detailData":function(aid){
-			$http.jsonp('http://www.phonegap100.com/appapi.php',{
+			$http.jsonp('https://www.phonegap100.com/appapi.php',{
 				"params":{
 					"a": "getPortalArticle",
 					"callback":"JSON_CALLBACK",
@@ -56,7 +56,7 @@ angular.module('myService',[])
 .service('getPostData',function($http,$rootScope){
 	return{
 		"postData":function(){
-			$http.jsonp('http://www.phonegap100.com/appapi.php',{
+			$http.jsonp('https://www.phonegap100.com/appapi.php',{
 				"params":{
 					"a":"getThreadCate",
 					"callback":"JSON_CALLBACK"
@@ -69,7 +69,7 @@ angular.module('myService',[])
 			})
 		},
 		"postlistData":function(fid,page){
-			$http.jsonp('http://www.phonegap100.com/appapi.php',{
+			$http.jsonp('https://www.phonegap100.com/appapi.php',{
 				"params":{
 					"a": "getThreadList",
 					"callback":"JSON_CALLBACK",
@@ -85,7 +85,7 @@ angular.module('myService',[])
 		},
 		//帖子详情的数据请求
 		"postdetailData":function(tid){
-			$http.jsonp('http://www.phonegap100.com/appapi.php',{
+			$http.jsonp('https://www.phonegap100.com/appapi.php',{
 				"params":{
 					"a": "getThreadContent",
 					"callback":"JSON_CALLBACK",
